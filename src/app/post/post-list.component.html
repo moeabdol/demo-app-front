@@ -1,0 +1,10 @@
+<h2>showing list of posts</h2>
+<div *ngIf="posts">
+  <div *ngFor="let post of posts">
+    <p>{{post.id}}</p>
+    <p>{{post.title}}</p>
+    <p>{{post.body}}</p>
+    <p>{{post.createdAt}}</p>
+    <p>{{post.updatedAt}}</p>
+  </div>
+</div>

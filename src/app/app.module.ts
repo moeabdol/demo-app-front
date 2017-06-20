@@ -1,14 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { HttpModule } from "@angular/http";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
+import { PostModule } from "./post/post.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PostModule,
+    HttpModule,
+    RouterModule.forRoot([
+      { path: "", redirectTo: "posts", pathMatch: "full" }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
