@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HttpModule } from "@angular/http";
+import { MomentModule } from "angular2-moment";
 
 import { PostService } from "./post.service";
 import { PostRoutingModule } from "./post-routing.module";
@@ -14,6 +15,7 @@ import { PostDetailComponent } from "./post-detail.component";
   ],
   imports: [
     CommonModule,
+    MomentModule,
     PostRoutingModule
   ],
   exports: [],

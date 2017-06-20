@@ -31,4 +31,8 @@ export class PostDetailComponent implements OnInit {
         error => this.errorMessage = <any>error
       );
   }
+
+  onBack() {
+    this._router.navigate(["/posts"]);
+  }
 }

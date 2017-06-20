@@ -1,8 +1,15 @@
-<div *ngIf="post">
-  <h1>Post {{post.id}}</h1>
-  <p>{{post.id}}</p>
-  <p>{{post.title}}</p>
-  <p>{{post.body}}</p>
-  <p>{{post.createdAt}}</p>
-  <p>{{post.updatedAt}}</p>
+<div class="container">
+  <div *ngIf="post">
+    <div class="card mt-3">
+      <h3 class="card-header">{{post.title}}</h3>
+      <div class="card-block">
+        <h4 class="card-title">{{post.title}}</h4>
+        <p class="card-text mb-1">{{post.body}}</p>
+        <small>{{post.createdAt | amTimeAgo}}</small>
+        <div class="mt-2">
+          <button (click)="onBack()" class="btn btn-primary">Go Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
