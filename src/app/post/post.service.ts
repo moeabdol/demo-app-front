@@ -18,6 +18,12 @@ export class PostService {
       .catch(this.handleError);
   }
 
+  getPost(id: number): Observable<IPost> {
+    return this._http.get(this._postsUrl + "/" + id)
+      .map((response: Response) => response.json())
+      .catch(this.handleError);
+  }
+
   handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || "Server error!");

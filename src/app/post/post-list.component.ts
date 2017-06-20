@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
-import { PostService } from "./post.service";
 import { IPost } from "./post";
+import { PostService } from "./post.service";
 
 @Component({
   moduleId: module.id,
