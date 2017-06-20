@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 
 import { PostService } from "./post.service";
-import { IPost } from "./post";
 
 @Component({
   moduleId: module.id,

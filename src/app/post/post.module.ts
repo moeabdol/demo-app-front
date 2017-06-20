@@ -8,12 +8,14 @@ import { PostRoutingModule } from "./post-routing.module";
 import { PostListComponent } from "./post-list.component";
 import { PostDetailComponent } from "./post-detail.component";
 import { PostCreateComponent } from "./post-create.component";
+import { PostUpdateComponent } from "./post-update.component";
 
 @NgModule({
   declarations: [
     PostListComponent,
     PostDetailComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    PostUpdateComponent
   ],
   imports: [
     CommonModule,
