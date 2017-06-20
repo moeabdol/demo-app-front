@@ -7,11 +7,13 @@ import { PostService } from "./post.service";
 import { PostRoutingModule } from "./post-routing.module";
 import { PostListComponent } from "./post-list.component";
 import { PostDetailComponent } from "./post-detail.component";
+import { PostCreateComponent } from "./post-create.component";
 
 @NgModule({
   declarations: [
     PostListComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    PostCreateComponent
   ],
   imports: [
     CommonModule,
