@@ -4,18 +4,27 @@ import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
+import { UiModule } from "./ui/ui.module";
 import { PostModule } from "./post/post.module";
+import { HomeComponent } from "./home/home.component";
+import { AboutComponent } from "./about/about.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    PostModule,
     HttpModule,
+    UiModule,
+    PostModule,
     RouterModule.forRoot([
-      { path: "", redirectTo: "posts", pathMatch: "full" }
+      { path: "home", component: HomeComponent },
+      { path: "about", component: AboutComponent },
+      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "**", redirectTo: "home", pathMatch: "full" }
     ]),
   ],
   providers: [],
