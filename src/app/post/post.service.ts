@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http, Response, Headers } from "@angular/http";
+import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
@@ -10,7 +11,10 @@ import { IPost } from "./post";
 export class PostService {
   private _postsUrl = "http://localhost:3000/posts";
 
-  constructor(private _http: Http) { }
+  constructor(
+    private _http: Http,
+    private _router: Router
+  ) { }
 
   getPosts(): Observable<IPost[]> {
     const headers = new Headers();

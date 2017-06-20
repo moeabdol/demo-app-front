@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { IPost } from "./post";
 import { PostService } from "./post.service";
@@ -14,7 +14,8 @@ export class PostUpdateComponent implements OnInit {
 
   constructor(
     private _postService: PostService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -34,7 +35,8 @@ export class PostUpdateComponent implements OnInit {
     this._postService.updatePost(this.post.id, {title: title, body: body})
       .subscribe(
         data => console.log(data),
-        error => this.errorMessage = <any>error
+        error => this.errorMessage = <any>error,
+        () => this._router.navigate(["posts"])
       );
   }
 }

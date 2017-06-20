@@ -36,12 +36,12 @@ export class PostDetailComponent implements OnInit {
     this._postService.deletePost(this.post.id)
       .subscribe(
         data => console.log(data),
-        error => this.errorMessage = <any>error
+        error => this.errorMessage = <any>error,
+        () => this._router.navigate(["posts"])
       );
-    this._router.navigate(["/posts"]);
   }
 
   onBack() {
-    this._router.navigate(["/posts"]);
+    this._router.navigate(["posts"]);
   }
 }
