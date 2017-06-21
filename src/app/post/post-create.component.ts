@@ -23,4 +23,8 @@ export class PostCreateComponent {
         () => this._router.navigate(["posts"])
       );
   }
+
+  onCancel() {
+    this._router.navigate(["posts"]);
+  }
 }

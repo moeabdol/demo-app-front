@@ -39,4 +39,8 @@ export class PostUpdateComponent implements OnInit {
         () => this._router.navigate(["posts"])
       );
   }
+
+  onCancel() {
+    this._router.navigate(["posts"]);
+  }
 }
