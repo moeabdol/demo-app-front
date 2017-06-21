@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { IPost } from "./post";
 import { PostService } from "./post.service";
@@ -10,12 +11,14 @@ import { PostService } from "./post.service";
 })
 export class PostUpdateComponent implements OnInit {
   post: IPost;
+  editPostForm: FormGroup;
   errorMessage: string;
 
   constructor(
     private _postService: PostService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -27,17 +30,29 @@ export class PostUpdateComponent implements OnInit {
     this._postService.getPost(id)
       .subscribe(
         post => this.post = post,
-        error => this.errorMessage = <any>error
+        error => this.errorMessage = <any>error,
+        () => this.initializeForm()
       );
   }
 
-  onSubmit(title: string, body: string) {
-    this._postService.updatePost(this.post.id, {title: title, body: body})
-      .subscribe(
-        data => console.log(data),
-        error => this.errorMessage = <any>error,
-        () => this._router.navigate(["posts"])
-      );
+  initializeForm() {
+    this.editPostForm = this._formBuilder.group({
+      "title": [this.post.title, Validators.required],
+      "body": [this.post.body, Validators.required]
+    });
+  }
+
+  onSubmit() {
+    if (this.editPostForm.valid) {
+      const title = this.editPostForm.get("title").value;
+      const body = this.editPostForm.get("body").value;
+      this._postService.updatePost(this.post.id, {title: title, body: body})
+        .subscribe(
+          data => console.log(data),
+          error => this.errorMessage = <any>error,
+          () => this._router.navigate(["posts"])
+        );
+    }
   }
 
   onCancel() {

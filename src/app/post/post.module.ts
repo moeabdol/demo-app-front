@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HttpModule } from "@angular/http";
 import { MomentModule } from "angular2-moment";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { PostService } from "./post.service";
 import { PostRoutingModule } from "./post-routing.module";
@@ -20,6 +21,7 @@ import { PostUpdateComponent } from "./post-update.component";
   imports: [
     CommonModule,
     MomentModule,
+    ReactiveFormsModule,
     PostRoutingModule
   ],
   exports: [],
